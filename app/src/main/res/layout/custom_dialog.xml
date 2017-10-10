@@ -2,29 +2,29 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#FFFDE7">
+    android:background="#FFFDE7"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/dia_name"
         android:layout_width="match_parent"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        android:textAllCaps="true"
         android:layout_height="wrap_content"
-        android:text="place name" />
+        android:text="place name"
+        android:textAllCaps="true"
+        android:textSize="20dp"
+        android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/dia_pic"
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:background="@mipmap/ic_launcher_round" />
+        android:background="@drawable/placeholder" />
 
 
     <LinearLayout
-        android:layout_margin="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="5dp"
         android:orientation="horizontal">
 
 
@@ -32,20 +32,33 @@
             android:id="@+id/dia_call"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginLeft="110dp"
+            android:layout_marginLeft="60dp"
             android:src="@drawable/casl"
             android:text="call" />
 
         <ImageView
             android:id="@+id/dia_direction"
-            android:src="@drawable/mapss"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginLeft="15dp"
+            android:src="@drawable/mapss" />
+
+        <Button
+            android:id="@+id/dia_infor"
+            android:layout_width="50dp"
+            android:text="I"
+            android:gravity="center"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+              />
+        <Button
+            android:id="@+id/dia_book"
+            android:layout_width="50dp"
+            android:text="B"
+            android:gravity="center"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
             />
-
-
-
     </LinearLayout>
 
 

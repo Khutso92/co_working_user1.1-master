@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -48,6 +49,7 @@ public class imageListAdapter extends ArrayAdapter<ImageUpload> {
         TextView txt = view.findViewById(R.id.tvLike);
         View ViewName = view.findViewById(R.id.ViewName);
         TextView price = view.findViewById(R.id.tvPrice);
+
 
         //Assigning data
         txtPlaceName.setText(listImage.get(position).getPlaceName());
@@ -105,6 +107,10 @@ public class imageListAdapter extends ArrayAdapter<ImageUpload> {
                 ImageView dia_call = dialogView.findViewById(R.id.dia_call);
                 final ImageView dia_direction = dialogView.findViewById(R.id.dia_direction);
 
+
+                Button dia_infor = dialogView.findViewById(R.id.dia_infor);
+                Button dia_book = dialogView.findViewById(R.id.dia_book);
+
                 Glide.with(context).load(listImage.get(position).getUrI()).centerCrop().into(dia_pic);
 
                 dia_name.setText(listImage.get(position).getPlaceName());
@@ -116,13 +122,13 @@ public class imageListAdapter extends ArrayAdapter<ImageUpload> {
                 dialogView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                         Intent intent = new Intent(getContext(), MaxPicActivity.class);
+                        Intent intent = new Intent(getContext(), MaxPicActivity.class);
 
-                          String pic = listImage.get(position).getUrI();
+                        String pic = listImage.get(position).getUrI();
 
-                            intent.putExtra("max_pic",pic);
+                        intent.putExtra("max_pic", pic);
 
-                            context.startActivity(intent);
+                        context.startActivity(intent);
 
                         alertDialog.dismiss();
                         //  dialogView.setVisibility(View.GONE);
@@ -130,7 +136,7 @@ public class imageListAdapter extends ArrayAdapter<ImageUpload> {
 
 
                 });
-               // final AlertDialog alertDialog = builder.create();
+                // final AlertDialog alertDialog = builder.create();
 
 
                 dia_call.setOnClickListener(new View.OnClickListener() {
@@ -168,7 +174,54 @@ public class imageListAdapter extends ArrayAdapter<ImageUpload> {
                     }
                 });
 
-               alertDialog.show();
+                dia_book.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        Intent intent = new Intent(getContext(), book_new.class);
+
+                        String name = listImage.get(position).getPlaceName();
+                        String pic = listImage.get(position).getUrI();
+
+                        Toast.makeText(getContext(), name + "", Toast.LENGTH_SHORT).show();
+
+                        intent.putExtra("pic", pic);
+                        context.startActivity(intent);
+                        alertDialog.dismiss();
+                    }
+                });
+
+                dia_infor.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        Intent intent = new Intent(getContext(), DetailActivity.class);
+
+                        String lat = listImage.get(position).getPlaceLatitude();
+                        String lon = listImage.get(position).getPlaceLongitude();
+                        String name = listImage.get(position).getPlaceName();
+                        String call = listImage.get(position).getPlaceCell();
+                        String infor = listImage.get(position).getPlaceInfo();
+                        String address = listImage.get(position).getPlaceAddress();
+                        String hours = listImage.get(position).getPlaceHours();
+                        String pic = listImage.get(position).getUrI();
+
+                        intent.putExtra("lat", lat);
+                        intent.putExtra("lon", lon);
+                        intent.putExtra("name", name);
+                        intent.putExtra("call", call);
+                        intent.putExtra("infor", infor);
+                        intent.putExtra("address", address);
+                        intent.putExtra("hours", hours);
+                        intent.putExtra("pic", pic);
+
+                        context.startActivity(intent);
+                        alertDialog.dismiss();
+
+                    }
+                });
+
+                alertDialog.show();
 
             }
 
