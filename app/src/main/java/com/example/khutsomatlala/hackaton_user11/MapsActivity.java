@@ -46,7 +46,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng co_space = new LatLng(lat, lon);
 
         mMap.addMarker(new MarkerOptions().position(co_space).title(PlaceName));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(co_space, 15));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(co_space, 30));
     }
         catch (NullPointerException e)
         {
