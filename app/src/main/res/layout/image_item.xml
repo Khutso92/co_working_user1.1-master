@@ -37,8 +37,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:text="place name"
+                    android:textColor="#000"
                     android:textSize="18dp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    />
 
                 <TextView
                     android:id="@+id/tvPrice"
@@ -48,6 +50,7 @@
                     android:layout_alignParentRight="true"
                     android:text="R100"
                     android:textSize="16dp"
+
                     android:layout_marginRight="40dp"
                     android:textColor="#daa520"
                     android:textStyle="bold" />
@@ -59,7 +62,8 @@
                 android:layout_height="wrap_content"
                 android:text="Location"
                 android:textSize="16dp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textColor="#196B69"/>
 
         </LinearLayout>
     </android.support.v7.widget.CardView>

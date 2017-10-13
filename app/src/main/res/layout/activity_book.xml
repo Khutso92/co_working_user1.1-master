@@ -4,126 +4,237 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/ll"
     android:orientation="vertical"
-    android:background="#FFFDE7"
     tools:context="com.example.khutsomatlala.hackaton_user11.BookActivity">
 
-    <android.support.v7.widget.CardView
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp">
+        android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/BookPic"
+        <android.support.v7.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="280dp"
-            android:background="@mipmap/ic_launcher" />
-    </android.support.v7.widget.CardView>
-
-
-
-
-
-    <LinearLayout
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-
-
-        <LinearLayout
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_margin="10dp">
 
-            <Button
-                android:id="@+id/myDatePickerButton"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center_horizontal"
-                android:background="@drawable/ic_perm_contact_calendar_black_24dp" />
+            <ImageView
+                android:id="@+id/BookPic"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@mipmap/ic_launcher" />
+        </android.support.v7.widget.CardView>
 
 
-            <TextView
-                android:id="@+id/showMyDate"
+        <!--   <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_marginLeft="15dp"
+               android:layout_marginRight="15dp"
+               android:layout_marginTop="5dp"
+               android:orientation="vertical">
+
+
+               <LinearLayout
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:orientation="horizontal">
+
+                   <Button
+                       android:id="@+id/myDatePickerButton"
+                       android:layout_width="50dp"
+                       android:layout_height="50dp"
+                       android:layout_gravity="center_horizontal"
+                       android:background="@drawable/ic_perm_contact_calendar_black_24dp" />
+
+
+                   <TextView
+                       android:id="@+id/showMyDate"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_marginLeft="7dp"
+                       android:layout_marginTop="15dp"
+                       android:hint="date"
+                       android:textColorHint="#000"
+                       android:textSize="16sp"
+                       android:textStyle="bold|italic" />
+
+               </LinearLayout>
+
+               <LinearLayout
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:orientation="horizontal">
+
+                   <Button
+                       android:id="@+id/button3"
+                       android:layout_width="50dp"
+                       android:layout_height="50dp"
+                       android:background="@drawable/ic_access_time_black_24dp" />
+
+                   <EditText
+                       android:id="@+id/EdtNumberHours"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_marginLeft="7dp"
+                       android:hint="no. of hrs"
+                       android:inputType="number"
+                       android:textColorHint="#000"
+                       android:textStyle="bold|italic" />
+
+               </LinearLayout>
+
+
+               <LinearLayout
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:orientation="horizontal">
+
+                   <Button
+                       android:id="@+id/Price_Order"
+                       android:layout_width="50dp"
+                       android:layout_height="50dp"
+                       android:background="@drawable/moneyrand"
+                       android:onClick="calPrice" />
+
+                   <TextView
+                       android:id="@+id/txtPrice"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_marginLeft="7dp"
+                       android:layout_marginTop="10dp"
+                       android:text="View amount"
+                       android:textColor="#000"
+                       android:textStyle="bold|italic" />
+
+               </LinearLayout>
+
+
+           </LinearLayout>-->
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="190dp">
+
+
+            <FrameLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="7dp"
-                android:hint="date"
-                android:textColorHint="#000"
-                android:textSize="16sp"
-                android:textStyle="bold|italic" />
+                android:layout_marginLeft="260dp"
+                android:layout_marginTop="4dp">
 
-        </LinearLayout>
+                <android.support.design.widget.FloatingActionButton xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/fab"
 
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:elevation="0dp"
+                    app:borderWidth="1dp"
+                    app:fabSize="normal" />
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@drawable/ic_access_time_black_24dp" />
+                <TextView
+                    android:id="@+id/txtPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="17dp"
+                    android:elevation="7dp"
 
-    <EditText
-        android:id="@+id/EdtNumberHours"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="7dp"
-        android:hint="no. of hrs"
-        android:inputType="number"
-       android:textColorHint="#000"
-        android:textStyle="bold|italic" />
+                    android:gravity="center"
+                    android:text="    R78"
+                    android:textColor="#ffffff" />
 
-</LinearLayout>
+            </FrameLayout>
 
+            <TextView
+                android:id="@+id/txtPlace_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="12dp"
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
+            <Button
+                android:id="@+id/btn_datePicker"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="50dp"
 
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
-    <Button
-        android:id="@+id/Price_Order"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@drawable/moneyrand"
-        android:onClick="calPrice" />
+                android:background="@drawable/calendar"/>
 
-    <TextView
-        android:id="@+id/txtPrice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-       android:textColor="#000"
-        android:text="View amount"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="7dp"
-        android:textStyle="bold|italic" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="120dp"
+                android:background="@drawable/rounder_corner">
 
-</LinearLayout>
+                <TextView
+                    android:id="@+id/txt_TextDateTime"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Date and time" />
 
+                <Button
+                    android:id="@+id/btn_timePicker"
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txt_TextDateTime"
+                    android:layout_marginLeft="4dp"
+                    android:background="@android:color/transparent"
+                    android:text="Time in" />
 
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_toRightOf="@id/btn_timePicker"
+                    android:src="@drawable/ic_chevron_right_black_24dp" />
 
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/txt_TextDateTimeOut"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/txt_TextDateTime"
+                    android:text="Date and time" />
 
+                <Button
+                    android:id="@+id/btn_timePickerOut"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txt_TextDateTime"
+                    android:layout_marginLeft="28dp"
+                    android:layout_toRightOf="@+id/btn_timePicker"
+                    android:background="@android:color/transparent"
+                    android:text="Time out" />
+            </RelativeLayout>
 
-    <Button
-        android:id="@+id/Order"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:background="#daa520"
-android:onClick="email"
-        android:text="Book now"
+            <Button
+                android:id="@+id/Order"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="230dp"
+                android:background="#0E3047"
+                android:onClick="email"
+                android:text="Book now"
+                android:textColor="#fff" />
 
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:textColor="#fff" />
+        </android.support.v7.widget.CardView>
+
+    </FrameLayout>
 
 </LinearLayout>

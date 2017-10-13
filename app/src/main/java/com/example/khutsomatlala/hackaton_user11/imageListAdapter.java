@@ -54,7 +54,7 @@ public class imageListAdapter extends ArrayAdapter<ImageUpload> {
         //Assigning data
         txtPlaceName.setText(listImage.get(position).getPlaceName());
         txt.setText(listImage.get(position).getPlaceWebsite());
-        price.setText(listImage.get(position).getPlaceAddress());
+        price.setText( "R"+listImage.get(position).getPlaceAddress());
 
 
         Glide.with(context).load(listImage.get(position).getUrI()).into(img);
@@ -73,7 +73,7 @@ public class imageListAdapter extends ArrayAdapter<ImageUpload> {
                 String address = listImage.get(position).getPlaceAddress();
                 String hours = listImage.get(position).getPlaceHours();
                 String pic = listImage.get(position).getUrI();
-                String webside = listImage.get(position).getPlaceAddress();
+                String price = listImage.get(position).getPlaceAddress();
 
 
                 intent.putExtra("lat", lat);
@@ -84,6 +84,7 @@ public class imageListAdapter extends ArrayAdapter<ImageUpload> {
                 intent.putExtra("address", address);
                 intent.putExtra("hours", hours);
                 intent.putExtra("pic", pic);
+                intent.putExtra("price", price);
 
                 context.startActivity(intent);
 

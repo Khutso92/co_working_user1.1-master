@@ -17,6 +17,7 @@
         <TextView
             android:id="@+id/txtInformation"
             android:textSize="16dp"
+            android:textColor="#196B69"
             android:hint="information"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
@@ -27,6 +28,7 @@
             android:layout_height="wrap_content"
             android:hint="Working hours"
             android:textSize="16dp"
+            android:textColor="#196B69"
             android:layout_marginTop="6dp"/>
 
     </LinearLayout>

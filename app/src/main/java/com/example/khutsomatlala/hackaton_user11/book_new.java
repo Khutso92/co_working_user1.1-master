@@ -2,6 +2,7 @@ package com.example.khutsomatlala.hackaton_user11;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
@@ -14,17 +15,19 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
+import java.text.DateFormat;
 import java.util.Calendar;
 
 /**
  * Created by Admin on 9/15/2017.
  */
 
-public class book_new  extends AppCompatActivity {
+public class book_new extends AppCompatActivity {
 
 
     private int mYear;
@@ -33,18 +36,32 @@ public class book_new  extends AppCompatActivity {
 
     private static int HOUR_PRICE = 20;
 
-    private TextView mDateDisplay, mPrice;
+/*    private TextView mDateDisplay, mPrice;
     private Button mPickDate;
-    EditText mNumberHours;
+    EditText mNumberHours;*/
 
     int hours;
     static final int DATE_DIALOG_ID = 0;
 
-    String pic,date1,date;
+    String pic, date1, name ,pricee;
 
     ImageView BookPic;
 
     Boolean Checked = true;
+    TextView placeName,price;
+
+    //Time and date picker
+    DateFormat formatDateTime = DateFormat.getDateTimeInstance();
+    Calendar dateTime = Calendar.getInstance();
+    private TextView text;
+    private TextView textout;
+    private Button btn_date;
+    private Button btn_time;
+    private Button btn_time_out;
+
+    //validate
+    int date = 0;
+    int month = 0;
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
@@ -54,16 +71,20 @@ public class book_new  extends AppCompatActivity {
 
         Intent i = getIntent();
         pic = i.getStringExtra("pic");
+        name = i.getStringExtra("name");
+        pricee = i.getStringExtra("price");
 
-        mDateDisplay = (TextView) findViewById(R.id.showMyDate);
+       /* mDateDisplay = (TextView) findViewById(R.id.showMyDate);
         mPickDate = (Button) findViewById(R.id.myDatePickerButton);
         mNumberHours = (EditText) findViewById(R.id.EdtNumberHours);
-        mPrice = (TextView) findViewById(R.id.txtPrice);
+        mPrice = (TextView) findViewById(R.id.txtPrice);*/
 
         BookPic = (ImageView) findViewById(R.id.BookPic);
+        placeName = (TextView) findViewById(R.id.txtPlace_name);
+        price = (TextView) findViewById(R.id.txtPrice);
 
-        mPickDate.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
+        // mPickDate.setOnClickListener(new View.OnClickListener() {
+     /*       public void onClick(View v) {
                 showDialog(DATE_DIALOG_ID);
             }
         });
@@ -72,7 +93,7 @@ public class book_new  extends AppCompatActivity {
         final Calendar c = Calendar.getInstance();
         mYear = c.get(Calendar.YEAR);
         mMonth = c.get(Calendar.MONTH);
-        mDay = c.get(Calendar.DAY_OF_MONTH);
+        mDay = c.get(Calendar.DAY_OF_MONTH);*/
 
         Glide.with(this)
                 .load(pic)
@@ -81,11 +102,133 @@ public class book_new  extends AppCompatActivity {
                 .into(BookPic);
 
         // display the current date
-        updateDisplay();
+        // updateDisplay();
+
+
+        placeName.setText(name);
+price.setText("    R" +pricee);
+
+        //date and time picker
+        text = (TextView) findViewById(R.id.txt_TextDateTime);
+        textout = (TextView) findViewById(R.id.txt_TextDateTimeOut);
+        btn_date = (Button) findViewById(R.id.btn_datePicker);
+        btn_time = (Button) findViewById(R.id.btn_timePicker);
+        btn_time_out = (Button) findViewById(R.id.btn_timePickerOut);
+
+        btn_date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updateDate();
+            }
+        });
+
+        btn_time.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updateTime();
+            }
+        });
+        btn_time_out.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updateTimeOut();
+            }
+        });
+
+        updateTextLabel();
 
     }
 
-    private void updateDisplay() {
+
+    //Date and time picker
+
+    private void updateDate() {
+        new DatePickerDialog(this, d, dateTime.get(Calendar.YEAR), dateTime.get(Calendar.MONTH), dateTime.get(Calendar.DAY_OF_MONTH)).show();
+
+    }
+
+    private void updateTime() {
+        new TimePickerDialog(this, t, dateTime.get(Calendar.HOUR_OF_DAY), dateTime.get(Calendar.MINUTE), true).show();
+    }
+
+    private void updateTimeOut() {
+        new TimePickerDialog(this, out, dateTime.get(Calendar.HOUR_OF_DAY), dateTime.get(Calendar.MINUTE), true).show();
+    }
+
+    DatePickerDialog.OnDateSetListener d = new DatePickerDialog.OnDateSetListener() {
+        @Override
+        public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+
+            month = Calendar.getInstance().get(Calendar.MONTH);
+            if (month < monthOfYear || month == monthOfYear) {
+                dateTime.set(Calendar.YEAR, year);
+                dateTime.set(Calendar.MONTH, monthOfYear);
+                dateTime.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                updateTextLabel();
+            } else {
+                Toast.makeText(book_new.this, " Incorrect month", Toast.LENGTH_SHORT).show();
+            }
+
+            if (monthOfYear < dayOfMonth || month == dayOfMonth) {
+                dateTime.set(Calendar.YEAR, year);
+                dateTime.set(Calendar.MONTH, monthOfYear);
+                dateTime.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                updateTextLabel();
+            } else {
+                Toast.makeText(book_new.this, "Enter valid date", Toast.LENGTH_SHORT).show();
+            }
+        }
+    };
+
+
+    TimePickerDialog.OnTimeSetListener t = new TimePickerDialog.OnTimeSetListener() {
+        @Override
+
+        public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+
+            dateTime.set(Calendar.HOUR_OF_DAY, hourOfDay);
+            dateTime.set(Calendar.MINUTE, minute);
+            date = hourOfDay;
+            updateTextLabel();
+
+        }
+
+    };
+
+
+    TimePickerDialog.OnTimeSetListener out = new TimePickerDialog.OnTimeSetListener() {
+        @Override
+        public void onTimeSet(TimePicker timePicker, int hours, int mins) {
+            dateTime.set(Calendar.HOUR_OF_DAY, hours);
+            dateTime.set(Calendar.MINUTE, mins);
+            if (date < hours) {
+                updateTimePicker();
+            } else {
+                Toast.makeText(book_new.this, "Re enter time " + date + " " + hours, Toast.LENGTH_SHORT).show();
+            }
+
+        }
+    };
+
+    private void updateTextLabel() {
+        text.setText(formatDateTime.format(dateTime.getTime()));
+
+    }
+
+    private void updateTimePicker() {
+
+        textout.setText(formatDateTime.format(dateTime.getTime()));
+
+
+    }
+
+
+
+
+
+
+
+  /*  private void updateDisplay() {
         this.mDateDisplay.setText(
                 new StringBuilder()
 
@@ -95,9 +238,9 @@ public class book_new  extends AppCompatActivity {
                         .append(mYear).append(" "));
 
 
-    }
+    }*/
 
-    private DatePickerDialog.OnDateSetListener mDateSetListener =
+  /*  private DatePickerDialog.OnDateSetListener mDateSetListener =
             new DatePickerDialog.OnDateSetListener() {
                 public void onDateSet(DatePicker view, int year,
                                       int monthOfYear, int dayOfMonth) {
@@ -108,10 +251,10 @@ public class book_new  extends AppCompatActivity {
 
 
                 }
-            };
+            };*/
 
 
-    @Override
+ /*   @Override
     protected Dialog onCreateDialog(int id) {
         switch (id) {
             case DATE_DIALOG_ID:
@@ -120,8 +263,9 @@ public class book_new  extends AppCompatActivity {
                         mYear, mMonth, mDay);
         }
         return null;
-    }
+    }*/
 
+/*
 
     public void calPrice(View view) {
 
@@ -149,14 +293,15 @@ public class book_new  extends AppCompatActivity {
         }
 
     }
+*/
 
 
-    public void email( View view ){
+    public void email(View view) {
 
         Intent intent = new Intent(Intent.ACTION_SENDTO);
         intent.setData(Uri.parse("mailto:")); //email apps will handle this
         intent.putExtra(Intent.EXTRA_SUBJECT, " Space booking ");
-        intent.putExtra(Intent.EXTRA_TEXT, "Booking information" );
+        intent.putExtra(Intent.EXTRA_TEXT, "Booking information");
         startActivity(intent);
 
     }

@@ -30,10 +30,10 @@
 
         <ImageView
             android:id="@+id/dia_call"
-            android:layout_width="50dp"
+            android:layout_width="40dp"
             android:layout_height="50dp"
             android:layout_marginLeft="60dp"
-            android:src="@drawable/casl"
+            android:src="@drawable/cell"
             android:text="call" />
 
         <ImageView
@@ -41,23 +41,23 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginLeft="15dp"
-            android:src="@drawable/mapss" />
+            android:src="@drawable/location" />
 
         <Button
             android:id="@+id/dia_infor"
             android:layout_width="50dp"
-            android:text="I"
             android:gravity="center"
+            android:background="@drawable/info"
             android:layout_height="match_parent"
             android:layout_marginLeft="15dp"
               />
         <Button
             android:id="@+id/dia_book"
             android:layout_width="50dp"
-            android:text="B"
             android:gravity="center"
             android:layout_height="match_parent"
             android:layout_marginLeft="15dp"
+            android:background="@drawable/booking"
             />
     </LinearLayout>
 

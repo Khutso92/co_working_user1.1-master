@@ -3,8 +3,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginLeft="8dp"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="12dp"
+    android:layout_marginRight="12dp"
+
     android:orientation="vertical">
 
     <LinearLayout
@@ -23,8 +25,7 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
+        android:orientation="horizontal">
 
         <EditText
             android:id="@+id/messageEditText"
@@ -33,7 +34,8 @@
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
             android:layout_marginRight="4dp"
-            android:hint="type a comment..." />
+            android:hint="type a comment..."
+            android:textColorHint="#daa520"/>
 
         <Button
             android:id="@+id/sendButton"
@@ -45,6 +47,5 @@
             android:enabled="false" />
 
     </LinearLayout>
-
 
 </LinearLayout>

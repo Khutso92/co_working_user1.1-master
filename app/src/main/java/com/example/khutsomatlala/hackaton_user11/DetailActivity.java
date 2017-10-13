@@ -58,6 +58,7 @@ public class DetailActivity extends Activity {
     String address;
     String hours;
     String pic;
+    String price;
 
     String place_uid;
 
@@ -110,6 +111,7 @@ EditText message;
         address = i.getStringExtra("address");
         hours = i.getStringExtra("hours");
         pic = i.getStringExtra("pic");
+        price = i.getStringExtra("price");
 
 
         txtInformation = findViewById(R.id.txtInformation);
@@ -132,9 +134,9 @@ EditText message;
         collapsingToolbarLayout.setTitle(PlaceName);
 
 
-        txtInformation.setText("Description - " + infor);
+        txtInformation.setText(""+ infor);
 
-        txtHours.setText("operating hours - " + hours);
+        txtHours.setText("Operating hours - " + hours);
 
 
         //rating bar
@@ -186,6 +188,7 @@ EditText message;
         mMessageListView = (ListView) findViewById(R.id.messageListView);
 
         mMessageEditText = (EditText) findViewById(R.id.messageEditText);
+
         mSendButton = (Button) findViewById(R.id.sendButton);
 
         // Initialize message ListView and its adapter
@@ -412,6 +415,8 @@ EditText message;
 
         Intent i = new Intent(getApplicationContext(), book_new.class);
         i.putExtra("pic", pic);
+        i.putExtra("name", PlaceName);
+        i.putExtra("price", price);
         startActivity(i);
     }
 
@@ -448,6 +453,8 @@ public void callLikes(){
 
 
 }
+
+
 
 }
 

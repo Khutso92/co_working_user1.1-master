@@ -15,20 +15,20 @@
 
         <Button
         android:id="@+id/btnDetail_call"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         android:layout_marginLeft="75dp"
         android:onClick="Call"
-        android:background="@drawable/casl"/>
+        android:background="@drawable/cell"/>
 
 
         <Button
             android:id="@+id/btnDetail_direction"
-            android:layout_width="50dp"
+            android:layout_width="40dp"
             android:layout_height="50dp"
             android:layout_marginLeft="15dp"
             android:onClick="direction"
-            android:background="@drawable/mapss" />
+            android:background="@drawable/location" />
 
         <Button
             android:id="@+id/btnDetail_hourlyRate"
@@ -36,7 +36,7 @@
             android:onClick="GoToBook"
             android:layout_height="50dp"
            android:layout_marginLeft="15dp"
-            android:background="@drawable/book"/>
+            android:background="@drawable/booking"/>
 
     </LinearLayout>
 
