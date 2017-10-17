@@ -15,7 +15,7 @@
             android:id="@+id/nameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#fff"
+            android:textColor="#000"
             android:textAppearance="?android:attr/textAppearanceSmall"
             tools:text="Name" />
 
@@ -25,7 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:textColor="#fff"
+            android:textColor="#000"
             android:layout_marginRight="12dp"
             android:adjustViewBounds="true" />
 
@@ -35,7 +35,7 @@
         android:id="@+id/messageTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#fff"
+        android:textColor="#000"
         android:textAppearance="?android:attr/textAppearanceLarge"
         tools:text="Message" />
 

@@ -106,7 +106,7 @@ public class book_new extends AppCompatActivity {
 
 
         placeName.setText(name);
-price.setText("    R" +pricee);
+price.setText("    R" +pricee + "/h");
 
         //date and time picker
         text = (TextView) findViewById(R.id.txt_TextDateTime);

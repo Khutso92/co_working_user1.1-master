@@ -2,12 +2,14 @@ package com.example.khutsomatlala.hackaton_user11;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.FragmentActivity;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.TextWatcher;
@@ -18,8 +20,15 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -32,7 +41,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RequiresApi(api = Build.VERSION_CODES.N)
-public class DetailActivity extends Activity {
+public class DetailActivity extends  FragmentActivity  implements OnMapReadyCallback {
 
 
     //Like
@@ -45,7 +54,7 @@ public class DetailActivity extends Activity {
     int counter = 0;
 
     long totalLikes = 0;
-
+    private GoogleMap mMap;
 
 //        try {
 
@@ -94,7 +103,7 @@ EditText message;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
-        message =(EditText)findViewById(R.id.messageEditText);
+        message = (EditText) findViewById(R.id.messageEditText);
 
         message.clearFocus();
 
@@ -128,15 +137,13 @@ EditText message;
                 .into(detail_pic);
 
 
-
-
         collapsingToolbarLayout = findViewById(R.id.collapsing_toolbar);
         collapsingToolbarLayout.setTitle(PlaceName);
 
 
-        txtInformation.setText(""+ infor);
+        txtInformation.setText("" + infor);
 
-        txtHours.setText("Operating hours - " + hours);
+        txtHours.setText(hours + " ");
 
 
         //rating bar
@@ -269,6 +276,9 @@ EditText message;
 
                 // Clear input box
                 mMessageEditText.setText("");
+
+
+
             }
         });
 
@@ -301,7 +311,25 @@ EditText message;
             }
         });
 
-        //Like
+
+        ImageView bookIV = (ImageView) findViewById(R.id.bookIV) ;
+        bookIV.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+                Intent newIntent = new Intent(DetailActivity.this, book_new.class);
+                startActivity(newIntent);
+            }
+        });
+
+
+        //maps
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
+    }
+
+      /*  //Like
         mDBLike = FirebaseDatabase.getInstance().getReference();
         mDBLike.keepSynced(true);
 
@@ -393,7 +421,7 @@ EditText message;
 
         callLikes();
     }
-
+*/
 
     public void Call(View view) {
 
@@ -412,15 +440,20 @@ EditText message;
     }
 
     public void GoToBook(View view) {
-
-        Intent i = new Intent(getApplicationContext(), book_new.class);
-        i.putExtra("pic", pic);
-        i.putExtra("name", PlaceName);
-        i.putExtra("price", price);
-        startActivity(i);
+//
+//        Intent i = new Intent(DetailActivity.this, book_new.class);
+//        i.putExtra("pic", pic);
+//        i.putExtra("name", PlaceName);
+//        i.putExtra("price", price);
+//        startActivity(i);
+        Toast.makeText(this, "ttt", Toast.LENGTH_SHORT).show();
     }
 
-public void callLikes(){
+
+
+
+
+    public void callLikes(){
 
     // Get a reference to our likes
     final FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -455,6 +488,30 @@ public void callLikes(){
 }
 
 
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        mMap = googleMap;
 
+        Intent intent = getIntent();
+
+        try {
+
+            String PlaceName = intent.getStringExtra("name");
+
+            Double lat = Double.parseDouble(intent.getStringExtra("lat"));
+            Double lon = Double.parseDouble(intent.getStringExtra("lon"));
+
+            // Add a marker in co_space and move the camera
+            LatLng co_space = new LatLng(lat, lon);
+
+            mMap.addMarker(new MarkerOptions().position(co_space).title(PlaceName));
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(co_space, 30));
+        }
+        catch (NullPointerException e)
+        {
+            e.printStackTrace();
+            Toast.makeText(this, "NullPointerException  ", Toast.LENGTH_SHORT).show();
+        }
+    }
 }
 

@@ -49,6 +49,7 @@ public class imageListAdapter extends ArrayAdapter<ImageUpload> {
         TextView txt = view.findViewById(R.id.tvLike);
         View ViewName = view.findViewById(R.id.ViewName);
         TextView price = view.findViewById(R.id.tvPrice);
+        ImageView ivBook = view.findViewById(R.id.ivBook);
 
 
         //Assigning data
@@ -58,6 +59,34 @@ public class imageListAdapter extends ArrayAdapter<ImageUpload> {
 
 
         Glide.with(context).load(listImage.get(position).getUrI()).into(img);
+
+
+
+
+        ivBook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(context,book_new.class);
+                context.startActivity(i);
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         ViewName.setOnClickListener(new View.OnClickListener() {
