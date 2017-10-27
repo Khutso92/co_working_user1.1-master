@@ -151,13 +151,14 @@
                 android:layout_marginTop="40dp"
                 android:orientation="horizontal">
 
+
                 <Button
                     android:id="@+id/btn_datePicker"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="#0E3047"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/calenda"
                     android:padding="8dp"
-                    android:text="select date"
+
                     android:textColor="#fff" />
 
                 <TextView
@@ -170,6 +171,7 @@
                     android:background="@drawable/square"
                     android:gravity="center"
                     android:padding="13.8dp"
+                    android:text="date"
                     android:textSize="16dp" />
             </LinearLayout>
 
@@ -196,16 +198,15 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
 
-                        android:orientation="vertical">
+                        android:orientation="horizontal">
 
 
                         <Button
                             android:id="@+id/btn_timePicker"
-                            android:layout_width="105dp"
+                            android:layout_width="40dp"
                             android:layout_height="40dp"
                             android:layout_below="@+id/txt_TextDateTime"
-                            android:background="#196B69"
-                            android:text="Time in"
+                            android:background="@drawable/time"
 
                             android:textColor="#fff" />
 
@@ -214,7 +215,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="4dp"
-                            android:text="00:00"
+                            android:text="time in"
                             android:textColor="#0e3047"
                             android:textStyle="bold" />
                     </LinearLayout>
@@ -224,16 +225,16 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="12dp"
                         android:layout_weight="1"
-                        android:orientation="vertical">
+                        android:orientation="horizontal">
 
                         <Button
                             android:id="@+id/btn_timePickerOut"
-                            android:layout_width="105dp"
+                            android:layout_width="40dp"
                             android:layout_height="40dp"
                             android:layout_below="@+id/txt_TextDateTime"
                             android:layout_toRightOf="@+id/btn_timePicker"
-                            android:background="#197a78"
-                            android:text="Time out"
+                            android:background="@drawable/time"
+
 
                             android:textColor="#fff" />
 
@@ -243,7 +244,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
                             android:layout_toRightOf="@+id/txt_TextDateTime"
-                            android:text="00:00"
+                            android:text="time out"
                             android:textColor="#0e3047"
                             android:textStyle="bold" />
 
@@ -251,100 +252,27 @@
                 </LinearLayout>
 
 
+
+
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="8dp"
                     android:orientation="horizontal">
-
-
-                    <Button
-
-                        android:layout_width="105dp"
-                        android:layout_height="40dp"
-                        android:layout_marginBottom="4dp"
-                        android:layout_marginLeft="16dp"
-                        android:background="#196B69"
-                        android:onClick="calculatePrice"
-                        android:text="check price"
-                        android:textColor="#fff" />
 
                     <TextView
                         android:id="@+id/txtTotalPrice"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
                         android:layout_marginLeft="12dp"
+                        android:gravity="center_horizontal"
                         android:text="Total"
                         android:textColor="#0e3047"
                         android:textStyle="bold" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="3">
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <RadioButton
-                            android:id="@+id/radioButton"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="20dp" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="sitting for 1" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <RadioButton
-                            android:id="@+id/radioButton"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="20dp" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="board room" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <RadioButton
-                            android:id="@+id/radioButton"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="20dp" />
-
-                        <TextView
-                            android:id="@+id/textView2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="balcony sitting" />
-
-                    </LinearLayout>
-
 
                 </LinearLayout>
+
 
                 <Button
                     android:id="@+id/Order"

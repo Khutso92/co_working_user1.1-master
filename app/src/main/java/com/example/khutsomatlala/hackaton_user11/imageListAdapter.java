@@ -13,21 +13,20 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
 import java.util.List;
 
 
-public class imageListAdapter extends ArrayAdapter<ImageUpload> {
+public class imageListAdapter extends ArrayAdapter<Place> {
 
     private Activity context;
     private int resource;
-    private List<ImageUpload> listImage;
+    private List<Place> listImage;
 
 
-    public imageListAdapter(@NonNull Activity context, @LayoutRes int resource, @NonNull List<ImageUpload> objects) {
+    public imageListAdapter(@NonNull Activity context, @LayoutRes int resource, @NonNull List<Place> objects) {
         super(context, resource, objects);
 
         this.context = context;
@@ -55,54 +54,59 @@ public class imageListAdapter extends ArrayAdapter<ImageUpload> {
         //Assigning data
         txtPlaceName.setText(listImage.get(position).getPlaceName());
         txt.setText(listImage.get(position).getPlaceWebsite());
-        price.setText( "R"+listImage.get(position).getPlaceAddress());
+        price.setText("R" + listImage.get(position).getPlaceAddress());
 
 
         Glide.with(context).load(listImage.get(position).getUrI()).into(img);
 
 
-
-
         ivBook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(context,book_new.class);
+                Intent i = new Intent(context, book_new.class);
+
+
+                String price = listImage.get(position).getPlaceAddress();
+                String name = listImage.get(position).getPlaceName();
+                String pic = listImage.get(position).getUrI();
+                String email = listImage.get(position).getEmail();
+
+                i.putExtra("pic", pic);
+                i.putExtra("name", name);
+                i.putExtra("price", price);
+                i.putExtra("email",email);
+
                 context.startActivity(i);
             }
         });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         ViewName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getContext(), DetailActivity.class);
+
+
+                Intent intent = new Intent(getContext(), PlaceDetailsActivity.class);
 
                 String lat = listImage.get(position).getPlaceLatitude();
                 String lon = listImage.get(position).getPlaceLongitude();
                 String name = listImage.get(position).getPlaceName();
                 String call = listImage.get(position).getPlaceCell();
                 String infor = listImage.get(position).getPlaceInfo();
-                String address = listImage.get(position).getPlaceAddress();
+
                 String hours = listImage.get(position).getPlaceHours();
                 String pic = listImage.get(position).getUrI();
                 String price = listImage.get(position).getPlaceAddress();
+                String location = listImage.get(position).getPlaceWebsite();
+
+//                String feat_1 = listImage.get(position).getFeat1();
+//                String feat_2 = listImage.get(position).getFeat2();
+//                String feat_3 = listImage.get(position).getFeat3();
+//
+//                String icon_1 = listImage.get(position).getIcon1();
+//                String icon_2 = listImage.get(position).getIcon2();
+//                String icon_3 = listImage.get(position).getIcon3();
+
 
 
                 intent.putExtra("lat", lat);
@@ -110,10 +114,19 @@ public class imageListAdapter extends ArrayAdapter<ImageUpload> {
                 intent.putExtra("name", name);
                 intent.putExtra("call", call);
                 intent.putExtra("infor", infor);
-                intent.putExtra("address", address);
+                intent.putExtra("location", location);
                 intent.putExtra("hours", hours);
                 intent.putExtra("pic", pic);
                 intent.putExtra("price", price);
+
+//
+//                intent.putExtra("feat_1",feat_1);
+//                intent.putExtra("feat_2",feat_2);
+//                intent.putExtra("feat_3",feat_3);
+//
+//                intent.putExtra("icon_1",icon_1);
+//                intent.putExtra("icon_2",icon_2);
+//                intent.putExtra("icon_3",icon_3);
 
                 context.startActivity(intent);
 
@@ -135,7 +148,7 @@ public class imageListAdapter extends ArrayAdapter<ImageUpload> {
                 TextView dia_name = dialogView.findViewById(R.id.dia_name);
                 //changed
                 ImageView dia_call = dialogView.findViewById(R.id.dia_call);
-                final ImageView dia_direction = dialogView.findViewById(R.id.dia_direction);
+              //  final ImageView dia_direction = dialogView.findViewById(R.id.dia_direction);
 
 
                 Button dia_infor = dialogView.findViewById(R.id.dia_infor);
@@ -183,7 +196,7 @@ public class imageListAdapter extends ArrayAdapter<ImageUpload> {
                     }
                 });
 
-                dia_direction.setOnClickListener(new View.OnClickListener() {
+          /*      dia_direction.setOnClickListener(new View.OnClickListener() {
 
                     @Override
                     public void onClick(View view) {
@@ -203,7 +216,7 @@ public class imageListAdapter extends ArrayAdapter<ImageUpload> {
 
                     }
                 });
-
+*/
                 dia_book.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -212,10 +225,10 @@ public class imageListAdapter extends ArrayAdapter<ImageUpload> {
 
                         String name = listImage.get(position).getPlaceName();
                         String pic = listImage.get(position).getUrI();
-
-                        Toast.makeText(getContext(), name + "", Toast.LENGTH_SHORT).show();
+                        String price = listImage.get(position).getPlaceAddress();
 
                         intent.putExtra("pic", pic);
+                        intent.putExtra("price", price);
                         context.startActivity(intent);
                         alertDialog.dismiss();
                     }

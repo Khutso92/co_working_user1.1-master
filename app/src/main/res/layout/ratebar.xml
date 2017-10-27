@@ -2,15 +2,22 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginTop="4dp"
     android:orientation="vertical">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="                Rate us"
+        android:textStyle="bold" />
 
     <RatingBar
         android:id="@+id/rating_rating_bar"
-
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
+        android:layout_gravity="clip_horizontal"
         android:layout_marginLeft="70dp"
         android:numStars="5"
         android:onClick="rate"
@@ -22,8 +29,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="170dp"
-        android:layout_marginTop="4dp"
-      />
+        android:layout_marginTop="4dp" />
 
 
 </LinearLayout>

@@ -1,25 +1,30 @@
 package com.example.khutsomatlala.hackaton_user11;
 
+import com.example.khutsomatlala.hackaton_user11.model.Feature;
+
 import java.io.Serializable;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by khutsomatlala on 2017/08/29.
  */
 
-public class ImageUpload  implements Serializable{
+public class Place implements Serializable {
 
     //Data members
     public String placeName;
-    public  String placeInfo;
+    public String placeInfo;
     public String placeAddress;
-    public   String placeCell;
-    public   String placeHours;
+    public String placeCell;
+    public String placeHours;
     public String placeWebsite;
-    public  String placeLongitude;
+    public String placeLongitude;
     public String placeLatitude;
     private String urI;
+    private String email;
 
-
+    private List<Feature> Features;
 
 
     //Like
@@ -46,25 +51,16 @@ public class ImageUpload  implements Serializable{
 
     //For user
 
-    public ImageUpload() {
+    public Place() {
 
     }
 
 
-    public ImageUpload(String comment,String rate) {
+    public Place(String comment, String rate) {
 
     }
 
-    public ImageUpload(String placeName,
-                       String placeInfo,
-                       String placeAddress,
-                       String placeCell,
-                       String placeHours,
-                       String placeWebsite,
-                       String placeLongitude,
-                       String placeLatitude,
-                       String urI) {
-
+    public Place(String placeName, String placeInfo, String placeAddress, String placeCell, String placeHours, String placeWebsite, String placeLongitude, String placeLatitude, String urI, String email, List<Feature> features, String like, int num) {
         this.placeName = placeName;
         this.placeInfo = placeInfo;
         this.placeAddress = placeAddress;
@@ -74,6 +70,10 @@ public class ImageUpload  implements Serializable{
         this.placeLongitude = placeLongitude;
         this.placeLatitude = placeLatitude;
         this.urI = urI;
+        this.email = email;
+        Features = features;
+        this.like = like;
+        this.num = num;
     }
 
     //getters
@@ -81,37 +81,49 @@ public class ImageUpload  implements Serializable{
         return placeName;
     }
 
-    public String getPlaceInfo(){
+    public String getPlaceInfo() {
         return placeInfo;
     }
 
-    public String getPlaceAddress(){
+    public String getPlaceAddress() {
         return placeAddress;
     }
 
-    public String getPlaceCell(){
+    public String getPlaceCell() {
         return placeCell;
     }
 
-    public String getPlaceHours(){
+    public String getPlaceHours() {
         return placeHours;
     }
 
 
-    public String getPlaceWebsite(){
+    public String getPlaceWebsite() {
         return placeWebsite;
     }
 
-    public   String getPlaceLongitude(){
+    public String getPlaceLongitude() {
         return placeLongitude;
     }
 
-    public   String getPlaceLatitude(){
+    public String getPlaceLatitude() {
         return placeLatitude;
     }
+
     public String getUrI() {
         return urI;
     }
 
+    public String getEmail() {
+        return email;
+    }
 
+
+    public List<Feature> getFeatures() {
+        return Features;
+    }
+
+    public void setFeatures(List<Feature> features) {
+        Features = features;
+    }
 }

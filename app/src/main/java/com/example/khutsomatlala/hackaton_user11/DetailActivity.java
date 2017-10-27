@@ -1,8 +1,6 @@
 package com.example.khutsomatlala.hackaton_user11;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -18,7 +16,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,7 +38,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RequiresApi(api = Build.VERSION_CODES.N)
-public class DetailActivity extends  FragmentActivity  implements OnMapReadyCallback {
+public class DetailActivity extends FragmentActivity implements OnMapReadyCallback {
 
 
     //Like
@@ -71,12 +68,14 @@ public class DetailActivity extends  FragmentActivity  implements OnMapReadyCall
 
     String place_uid;
 
+
+    String icon1,icon2,icon3;
     //rating
-    RatingBar ratingRatingBar;
+
     TextView ratingDisplayTextView;
 
 
-    ImageView detail_pic,max_pic_dialog;
+    ImageView detail_pic, max_pic_dialog;
     TextView txtInformation, txtAddress, txtCell, txtHours;
 
     private CollapsingToolbarLayout collapsingToolbarLayout = null;
@@ -94,7 +93,7 @@ public class DetailActivity extends  FragmentActivity  implements OnMapReadyCall
 
     private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference mMessagesDatabaseReference, mCommentsDatabaseReference, mLikeDatabaseReference;
-EditText message;
+    EditText message;
 
     List<FriendlyMessage> mComments;
     private FirebaseAuth mFirebaseAuth;
@@ -110,6 +109,8 @@ EditText message;
         message.setFocusableInTouchMode(true);
 
         mComments = new ArrayList<>();
+
+
         Intent i = getIntent();
 
         lat = i.getStringExtra("lat");
@@ -121,6 +122,12 @@ EditText message;
         hours = i.getStringExtra("hours");
         pic = i.getStringExtra("pic");
         price = i.getStringExtra("price");
+        PlaceName = i.getStringExtra("name");
+
+
+        icon1 = i.getStringExtra("icon_1");
+        icon2 = i.getStringExtra("icon_2");
+        icon3 = i.getStringExtra("icon_3");
 
 
         txtInformation = findViewById(R.id.txtInformation);
@@ -146,37 +153,7 @@ EditText message;
         txtHours.setText(hours + " ");
 
 
-        //rating bar
 
-        ratingRatingBar = findViewById(R.id.rating_rating_bar);
-        ratingDisplayTextView = findViewById(R.id.rating_display_text_View);
-     /*   ratingRatingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
-            @Override
-            public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
-                if( ratingRatingBar.getRating() == 1){
-                    rateMessage = "Hated it";
-
-                }
-                else if(  (int)v == 2)
-                {
-                    rateMessage = "Disliked it";
-                }
-                else if( (int)v == 3)
-                {
-                    rateMessage = "It's OK";
-                }
-                else if( (int)v == 4)
-                {
-                    rateMessage = "Liked it";
-                }
-                else {
-                    rateMessage = "Loved it";
-                }
-
-                ratingDisplayTextView.setText( "" + rateMessage);
-            }
-
-        });*/
 
 
         // ------------------- chating things
@@ -186,8 +163,6 @@ EditText message;
         // mAuthStateListener = FirebaseAuth.getInstance();
 
         mCommentsDatabaseReference = mFirebaseDatabase.getReference().child("comments");
-
-
         mMessagesDatabaseReference = mFirebaseDatabase.getReference().child("places");
 
         // Initialize references to views
@@ -202,7 +177,6 @@ EditText message;
         List<FriendlyMessage> friendlyMessages = new ArrayList<>();
         mMessageAdapter = new MessageAdapter(this, R.layout.item_message, friendlyMessages);
         mMessageListView.setAdapter(mMessageAdapter);
-
 
         //   again check if the user is already logged in or not
         if (mFirebaseAuth.getCurrentUser() == null) {
@@ -278,7 +252,6 @@ EditText message;
                 mMessageEditText.setText("");
 
 
-
             }
         });
 
@@ -286,7 +259,6 @@ EditText message;
         mCommentsDatabaseReference.child(PlaceName).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-//                progressDialog.dismiss();
 
                 //Fectching information from database
 
@@ -312,13 +284,19 @@ EditText message;
         });
 
 
-        ImageView bookIV = (ImageView) findViewById(R.id.bookIV) ;
-        bookIV.setOnClickListener(new View.OnClickListener(){
+        ImageView bookIV = (ImageView) findViewById(R.id.bookIV);
+        bookIV.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
-                Intent newIntent = new Intent(DetailActivity.this, book_new.class);
-                startActivity(newIntent);
+                Intent i = new Intent(DetailActivity.this, book_new.class);
+
+                i.putExtra("pic", pic);
+                i.putExtra("name", PlaceName);
+                i.putExtra("price", price);
+                startActivity(i);
+
+
             }
         });
 
@@ -344,7 +322,7 @@ EditText message;
                                            @Override
                                            public void onClick(View view) {
 
-                                               ImageUpload likes = new ImageUpload();
+                                               Place likes = new Place();
 
                                                if (mProcessLike == false) {
 
@@ -390,7 +368,7 @@ EditText message;
 //                                               ref.addValueEventListener(new ValueEventListener() {
 //                                                   @Override
 //                                                   public void onDataChange(DataSnapshot dataSnapshot) {
-//                                                       ImageUpload likes = dataSnapshot.getValue(ImageUpload.class);
+//                                                       Place likes = dataSnapshot.getValue(Place.class);
 //                                                       if (likes != null) {
 //
 //                                                           totalLikes = dataSnapshot.getChildrenCount();
@@ -450,42 +428,39 @@ EditText message;
     }
 
 
+    public void callLikes() {
 
+        // Get a reference to our likes
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ref = database.getReference("Likes").child(PlaceName);
 
+        // Attach a listener to read the data at our likes reference
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Place likes = dataSnapshot.getValue(Place.class);
+                if (likes != null) {
 
-    public void callLikes(){
-
-    // Get a reference to our likes
-    final FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference ref = database.getReference("Likes").child(PlaceName);
-
-    // Attach a listener to read the data at our likes reference
-    ref.addValueEventListener(new ValueEventListener() {
-        @Override
-        public void onDataChange(DataSnapshot dataSnapshot) {
-            ImageUpload likes = dataSnapshot.getValue(ImageUpload.class);
-            if (likes != null) {
-
-                totalLikes = dataSnapshot.getChildrenCount();
+                    totalLikes = dataSnapshot.getChildrenCount();
 //                Toast.makeText(DetailActivity.this, totalLikes + "", Toast.LENGTH_SHORT).show();
-                tvLikes.setText(totalLikes + "");
+                    tvLikes.setText(totalLikes + "");
 
-            } else {
+                } else {
 //                Toast.makeText(DetailActivity.this, " Number of  likes" + totalLikes, Toast.LENGTH_SHORT).show();
 
-                tvLikes.setText(totalLikes + "");
+                    tvLikes.setText(totalLikes + "");
+                }
+
             }
 
-        }
-
-        @Override
-        public void onCancelled(DatabaseError databaseError) {
-            System.out.println("The read failed: " + databaseError.getCode());
-        }
-    });
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("The read failed: " + databaseError.getCode());
+            }
+        });
 
 
-}
+    }
 
 
     @Override
@@ -506,9 +481,7 @@ EditText message;
 
             mMap.addMarker(new MarkerOptions().position(co_space).title(PlaceName));
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(co_space, 30));
-        }
-        catch (NullPointerException e)
-        {
+        } catch (NullPointerException e) {
             e.printStackTrace();
             Toast.makeText(this, "NullPointerException  ", Toast.LENGTH_SHORT).show();
         }
