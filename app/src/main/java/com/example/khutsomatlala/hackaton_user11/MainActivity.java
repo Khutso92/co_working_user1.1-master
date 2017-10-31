@@ -69,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
                     details.setPrice((long) snapshot.child("details").child("PlacePrice").getValue());
                     details.setPlaceLatitude(snapshot.child("details").child("Latitude").getValue().toString());
                     details.setPlaceLongitude(snapshot.child("details").child("Longitude").getValue().toString());
+                    details.setPlaceWebsite(snapshot.child("details").child("PlaceWebsite").getValue().toString());
 
                     workingSpace.setPlaceDetails(details);
                     List<PlacePicture> pictures = new ArrayList<>();

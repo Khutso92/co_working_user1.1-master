@@ -195,7 +195,6 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-
                         android:orientation="vertical">
 
 
@@ -251,6 +250,46 @@
                 </LinearLayout>
 
 
+                <RadioGroup
+                    android:id="@+id/RadioGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="NumPeople"
+                    android:orientation="horizontal"
+                    android:weightSum="5">
+
+                    <RadioButton
+                        android:id="@+id/rb_onePerson"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:onClick="NumPeople"
+                        android:text="1 person"
+                        android:textAppearance="?android:textAppearanceMedium" />
+
+
+                    <RadioButton
+                        android:id="@+id/rb_MorePeople"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dp"
+                        android:layout_weight="1"
+                        android:onClick="NumPeople"
+                        android:text="more"
+                        android:textAppearance="?android:textAppearanceMedium" />
+
+                    <EditText
+                        android:id="@+id/edtPeopleNumber"
+                        android:layout_width="wrap_content"
+                        android:inputType="number"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3" />
+
+
+                </RadioGroup>
+
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -258,16 +297,6 @@
                     android:orientation="horizontal">
 
 
-                    <Button
-
-                        android:layout_width="105dp"
-                        android:layout_height="40dp"
-                        android:layout_marginBottom="4dp"
-                        android:layout_marginLeft="16dp"
-                        android:background="#196B69"
-                        android:onClick="calculatePrice"
-                        android:text="check price"
-                        android:textColor="#fff" />
 
                     <TextView
                         android:id="@+id/txtTotalPrice"
@@ -277,73 +306,6 @@
                         android:text="Total"
                         android:textColor="#0e3047"
                         android:textStyle="bold" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="3">
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <RadioButton
-                            android:id="@+id/radioButton"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="20dp" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="sitting for 1" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <RadioButton
-                            android:id="@+id/radioButton"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="20dp" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="board room" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <RadioButton
-                            android:id="@+id/radioButton"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="20dp" />
-
-                        <TextView
-                            android:id="@+id/textView2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="balcony sitting" />
-
-                    </LinearLayout>
-
-
                 </LinearLayout>
 
                 <Button

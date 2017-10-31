@@ -5,6 +5,7 @@
     android:layout_height="200dp">
 
     <ImageView
+        android:id="@+id/wsPic"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#0099ff" />
@@ -25,7 +26,7 @@
         >
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/wsName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-condensed"
@@ -35,7 +36,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/wsAddress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textView"
@@ -47,7 +48,7 @@
             android:textStyle="normal" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/wsHours"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textView"
@@ -74,7 +75,7 @@
         >
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/wsFeat1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/square_box_border"
@@ -84,7 +85,7 @@
         android:textSize="13sp" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/wsFeat2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/square_box_border"
@@ -95,7 +96,7 @@
         android:textSize="13sp" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/wsFeat3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="12dp"
@@ -108,7 +109,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/wsPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -121,7 +122,7 @@
         android:textSize="16sp"/>
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/weLike"
         android:layout_margin="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -130,6 +131,5 @@
         android:background="@android:color/transparent"
         android:layout_alignParentTop="true"
         app:srcCompat="@drawable/ic_like" />
-
 
 </RelativeLayout>

@@ -112,7 +112,7 @@ public class PlaceDetailsActivity extends FragmentActivity implements OnMapReady
     RatingBar ratingBar ;
 
 
-    DecimalFormat value = new DecimalFormat("#.#");
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -133,6 +133,9 @@ public class PlaceDetailsActivity extends FragmentActivity implements OnMapReady
         pic1 = i.getStringExtra("pic1");
         price = i.getStringExtra("price");
         location = i.getStringExtra("location");
+        email = i.getStringExtra("email");
+
+
 
         feat1 = i.getStringExtra("feat_1");
 //        feat2 = i.getStringExtra("feat_2");
@@ -531,6 +534,7 @@ public class PlaceDetailsActivity extends FragmentActivity implements OnMapReady
         i.putExtra("pic", pic1);
         i.putExtra("name", PlaceName);
         i.putExtra("price", price);
+        i.putExtra("email", email);
         startActivity(i);
     }
 

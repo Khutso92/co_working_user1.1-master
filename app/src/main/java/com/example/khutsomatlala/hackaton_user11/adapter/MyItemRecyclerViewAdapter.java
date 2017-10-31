@@ -34,7 +34,7 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.working_space_item_layout, parent, false);
+                .inflate(R.layout.working_spaces_item_layout, parent, false);
         return new ViewHolder(view);
     }
 
@@ -76,6 +76,8 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
 
                 System.out.println("pic 1 - " + pic1);
 
+                Toast.makeText(activity, "email " +email, Toast.LENGTH_SHORT).show();
+
                 Toast.makeText(activity, "" + pic1, Toast.LENGTH_SHORT).show();
                 intent.putExtra("lat", lat);
                 intent.putExtra("lon", lon);
@@ -106,18 +108,23 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
         public TextView address;
         public TextView placeName;
         public ImageView feat1;
+        public ImageView feat2;
+        public ImageView feat3;
+
         public WorkingSpace mItem;
 
         public ViewHolder(View view) {
             super(view);
             mView = view;
 
-            pic = view.findViewById(R.id.iv_placePic);
-            hours = view.findViewById(R.id.txtPlaceHours);
-            price = view.findViewById(R.id.txtPlacePrice);
-            address = view.findViewById(R.id.txtPlaceAddress);
-            placeName = view.findViewById(R.id.txtPlaceName);
-            feat1 = view.findViewById(R.id.ib_feat1);
+            pic = view.findViewById(R.id.wsPic);
+            hours = view.findViewById(R.id.wsHours);
+            price = view.findViewById(R.id.wsPrice);
+            address = view.findViewById(R.id.wsAddress);
+            placeName = view.findViewById(R.id.wsName);
+//            feat1 = view.findViewById(R.id.wsFeat1);
+//            feat2 = view.findViewById(R.id.wsFeat2);
+//            feat3= view.findViewById(R.id.wsFeat3);
 
         }
 

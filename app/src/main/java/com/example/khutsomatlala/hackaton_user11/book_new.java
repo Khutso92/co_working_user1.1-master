@@ -14,14 +14,18 @@ import android.support.annotation.RequiresApi;
 
 import android.support.v7.app.AppCompatActivity;
 
+import android.text.TextUtils;
 import android.view.View;
 
 import android.widget.Button;
 
 import android.widget.DatePicker;
 
+import android.widget.EditText;
 import android.widget.ImageView;
 
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import android.widget.TimePicker;
@@ -48,7 +52,7 @@ public class book_new extends AppCompatActivity {
 
     String duration;
 
-    Boolean TimeIn = false, TimeOut = false, Calculate = false;
+    Boolean TimeIn = false, TimeOut = false, Calculate = false, dateEntered = false, one = false, more = false;
 
     private static int HOUR_PRICE = 20;
 
@@ -63,7 +67,6 @@ public class book_new extends AppCompatActivity {
     String pic, date1, name, pricee, mBookingInfor, mTimeIn, mTimeOut, mDate, mEmail;
 
     ImageView BookPic;
-
 
 
     TextView placeName, mPrice, tv_date, txtTotalPrice;
@@ -89,6 +92,13 @@ public class book_new extends AppCompatActivity {
 
     int month = 0;
 
+
+    //Number of people
+    RadioButton MorePeople, onePerson;
+    RadioGroup radioGroup;
+    EditText PeopleNumber;
+    String   numberOfPeople;
+
     @RequiresApi(api = Build.VERSION_CODES.N)
 
     @Override
@@ -97,7 +107,7 @@ public class book_new extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
 
-      //  setContentView(R.layout.activity_book);
+        //  setContentView(R.layout.activity_book);
         setContentView(R.layout.activity_book);
 
         Intent i = getIntent();
@@ -111,7 +121,6 @@ public class book_new extends AppCompatActivity {
         mEmail = i.getStringExtra("email");
 
 
-        Toast.makeText(this, ""+ pricee, Toast.LENGTH_SHORT).show();
 
         mPrice = (TextView) findViewById(R.id.txtPrice);
 
@@ -122,6 +131,12 @@ public class book_new extends AppCompatActivity {
         txtTotalPrice = (TextView) findViewById(R.id.txtTotalPrice);
 
         tv_date = (TextView) findViewById(R.id.date);
+
+
+        MorePeople = (RadioButton) findViewById(R.id.rb_MorePeople);
+        onePerson = (RadioButton) findViewById(R.id.rb_onePerson);
+        radioGroup = (RadioGroup) findViewById(R.id.RadioGroup);
+        PeopleNumber = (EditText) findViewById(R.id.edtPeopleNumber);
 
         mPrice.setText("R" + pricee + "/h");
 
@@ -230,6 +245,7 @@ public class book_new extends AppCompatActivity {
 
                 mDate = String.valueOf(mDay + " - " + mMonth + " - " + mYear);
 
+
             } else {
 
                 Toast.makeText(book_new.this, " Incorrect month", Toast.LENGTH_SHORT).show();
@@ -243,7 +259,7 @@ public class book_new extends AppCompatActivity {
                 dateTime.set(Calendar.MONTH, monthOfYear);
 
                 dateTime.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-
+                dateEntered = true;
             } else {
 
                 Toast.makeText(book_new.this, "Enter valid date", Toast.LENGTH_SHORT).show();
@@ -278,11 +294,9 @@ public class book_new extends AppCompatActivity {
 
             mMinsIn = minute;
 
-            //updateTextLabel();
-
             String form;
 
-            if (hourOfDay > 12) {
+            if (hourOfDay >= 12) {
 
                 mHoursIn = hourOfDay - 12;
 
@@ -301,12 +315,11 @@ public class book_new extends AppCompatActivity {
             }
 
 
-            if (mMinsIn<10) {
+            if (mMinsIn < 10) {
                 text.setText(mHoursIn + ":0" + mMinsIn + " " + form);
             } else {
                 text.setText(mHoursIn + ":" + mMinsIn + " " + form);
             }
-
 
 
         }
@@ -337,7 +350,7 @@ public class book_new extends AppCompatActivity {
 
                 String form;
 
-                if (mHoursOut > 12) {
+                if (mHoursOut >= 12) {
 
                     mHoursOut = mHoursOut - 12;
 
@@ -357,7 +370,7 @@ public class book_new extends AppCompatActivity {
 
                 mTimeOut = String.valueOf(hours + ":" + mins);
 
-                if (mMinsOut<10) {
+                if (mMinsOut < 10) {
                     textout.setText(mHoursOut + ":0" + mMinsOut + " " + form);
                 } else {
                     textout.setText(mHoursOut + ":" + mMinsOut + " " + form);
@@ -372,38 +385,16 @@ public class book_new extends AppCompatActivity {
 
     };
 
-    public void calculatePrice(View view) {
-
-        if (TimeIn && TimeOut) {
-            Calculate = true;
-
-            mDiffMins = mMinsIn + mMinsOut;
-
-            duration = String.valueOf(mHoursOut - mHoursIn);
-
-            if (mDiffMins >= 60) {
-
-                mTotal = (mHoursOut - mHoursIn) + 1;
-
-            } else {
-
-                mTotal = (mHoursOut - mHoursIn);
-
-            }
-
-            mTotal = mTotal * Integer.parseInt(pricee);
-
-            txtTotalPrice.setText("R" + mTotal + "0");
-        } else {
-            Toast.makeText(this, "Enter time in and out", Toast.LENGTH_SHORT).show();
-        }
-    }
 
     public void email(View view) {
 
-        if (TimeOut && TimeOut && Calculate) {
+        if (TimeOut && TimeOut & dateEntered & (one || more)) {
 
-            mBookingInfor = "Date - " + mDate + "\n" + "Time in - " + mTimeIn + "\n" + "Time out - " + mTimeOut + "\n" + "Price - R" + mTotal + "0";
+            mBookingInfor = "Date - " + mDate + "\n"
+                    + "Time in - " + mTimeIn + "\n"
+                    + "Time out - " + mTimeOut + "\n"
+                    + "Number of people - " + numberOfPeople + "\n"
+                    + "Price - R" + mTotal + "0";
 
             Intent email = new Intent(Intent.ACTION_SEND);
 
@@ -422,6 +413,91 @@ public class book_new extends AppCompatActivity {
         {
 
             Toast.makeText(this, "Fill all the  fields", Toast.LENGTH_SHORT).show();
+
+        }
+
+    }
+
+    public void NumPeople(View view) {
+
+        int selectedId = radioGroup.getCheckedRadioButtonId();
+
+
+        switch (selectedId) {
+
+            case R.id.rb_MorePeople:
+                txtTotalPrice.setText("R0.00");
+
+                mTotal = 0;
+                more = true;
+                if (dateEntered) {
+                    if (TimeIn && TimeOut) {
+
+                        mDiffMins = mMinsIn + mMinsOut;
+
+                        duration = String.valueOf(mHoursOut - mHoursIn);
+
+                        if (mDiffMins >= 60) {
+
+                            mTotal = (mHoursOut - mHoursIn) + 1;
+
+                        } else {
+
+                            mTotal = (mHoursOut - mHoursIn);
+
+                        }
+
+                        mTotal = mTotal * Integer.parseInt(pricee);
+
+                          numberOfPeople = PeopleNumber.getText().toString();
+
+
+                        if (!TextUtils.isEmpty(numberOfPeople)) {
+                            txtTotalPrice.setText("R" + Math.abs( mTotal) * Integer.parseInt(numberOfPeople) + "0");
+                        } else {
+                            Toast.makeText(this, "enter number of people", Toast.LENGTH_SHORT).show();
+                        }
+
+                    } else {
+                        Toast.makeText(this, "Enter time in and out", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(this, "Select a date", Toast.LENGTH_SHORT).show();
+                }
+
+                break;
+
+            case R.id.rb_onePerson:
+                one = true;
+                mTotal = 0;
+
+                numberOfPeople = "1";
+
+                if (TimeIn && TimeOut) {
+
+                    mDiffMins = mMinsIn + mMinsOut;
+
+                    duration = String.valueOf(mHoursOut - mHoursIn);
+
+                    if (mDiffMins >= 60) {
+
+                        mTotal = (mHoursOut - mHoursIn) + 1;
+
+                    } else {
+
+                        mTotal = (mHoursOut - mHoursIn);
+
+                    }
+
+                    mTotal = mTotal * Integer.parseInt(pricee);
+
+                    txtTotalPrice.setText("R" +Math.abs(mTotal) + "0");
+                } else {
+                    Toast.makeText(this, "Enter time in and out", Toast.LENGTH_SHORT).show();
+                }
+
+
+                break;
 
         }
 
