@@ -51,11 +51,18 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
         holder.address.setText(mValues.get(position).getPlaceDetails().getPlaceAddress());
         holder.placeName.setText(mValues.get(position).getPlaceDetails().getPlaceName());
 
-        //  Glide.with(activity).load(mValues.get(position).getFeatures().get(0).getImageUrl()).into(holder.feat1);
+   holder.feat1.setText(mValues.get(position).getFeatures().get(0).getTitle().toString());
+      holder.feat2.setText(mValues.get(position).getFeatures().get(1).getTitle().toString());
+         holder.feat3.setText(mValues.get(position).getFeatures().get(2).getTitle().toString());
+
+
+
+
 
         Glide.with(activity).load(mValues.get(position).getPictures().get(0).getImageUrl()).into(holder.pic);
 
-        System.out.println(mValues.get(position).getPictures().get(0).getImageUrl());
+       // System.out.println(mValues.get(position).getPictures().get(0).getImageUrl());
+
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,9 +83,6 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
 
                 System.out.println("pic 1 - " + pic1);
 
-                Toast.makeText(activity, "email " +email, Toast.LENGTH_SHORT).show();
-
-                Toast.makeText(activity, "" + pic1, Toast.LENGTH_SHORT).show();
                 intent.putExtra("lat", lat);
                 intent.putExtra("lon", lon);
                 intent.putExtra("name", name);
@@ -107,9 +111,9 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
         public TextView price;
         public TextView address;
         public TextView placeName;
-        public ImageView feat1;
-        public ImageView feat2;
-        public ImageView feat3;
+        public TextView feat1;
+        public TextView feat2;
+        public TextView feat3;
 
         public WorkingSpace mItem;
 
@@ -122,9 +126,9 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
             price = view.findViewById(R.id.wsPrice);
             address = view.findViewById(R.id.wsAddress);
             placeName = view.findViewById(R.id.wsName);
-//            feat1 = view.findViewById(R.id.wsFeat1);
-//            feat2 = view.findViewById(R.id.wsFeat2);
-//            feat3= view.findViewById(R.id.wsFeat3);
+            feat1 = view.findViewById(R.id.wsFeat1);
+            feat2 = view.findViewById(R.id.wsFeat2);
+            feat3= view.findViewById(R.id.wsFeat3);
 
         }
 

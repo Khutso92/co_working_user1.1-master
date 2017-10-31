@@ -464,7 +464,7 @@ public class book_new extends AppCompatActivity {
                 } else {
                     Toast.makeText(this, "Select a date", Toast.LENGTH_SHORT).show();
                 }
-
+                
                 break;
 
             case R.id.rb_onePerson:

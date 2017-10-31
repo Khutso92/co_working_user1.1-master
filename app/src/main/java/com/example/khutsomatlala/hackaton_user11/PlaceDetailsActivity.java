@@ -171,7 +171,7 @@ public class PlaceDetailsActivity extends FragmentActivity implements OnMapReady
                 .into(PlacePic);
 
 
-        Toast.makeText(this, "pic" + pic1, Toast.LENGTH_SHORT).show();
+
 //        Glide.with(this)
 //                .load(icon1)
 //                .override(300, 200)
@@ -277,8 +277,6 @@ public class PlaceDetailsActivity extends FragmentActivity implements OnMapReady
 
             String uid = user.getUid();
 
-//            Toast.makeText(this, "User UID - >" + uid , Toast.LENGTH_SHORT).show();
-            //     Toast.makeText(this, "name - " + name, Toast.LENGTH_SHORT).show();
 
             mUsername = name;
         }
@@ -341,6 +339,7 @@ public class PlaceDetailsActivity extends FragmentActivity implements OnMapReady
                     mNumberReviews.setText(reviews + "\nreviews");
 
                     mComments.add(friendlyMessage);
+
 
                 }
 

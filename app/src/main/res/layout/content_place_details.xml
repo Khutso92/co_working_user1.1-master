@@ -72,93 +72,92 @@
         </LinearLayout>
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+        <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
 
-            android:weightSum="3">
+        <!--android:weightSum="3">-->
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical">
-
-
-                <ImageButton
-                    android:id="@+id/IBicon_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@android:color/transparent"
-                    android:fitsSystemWindows="true"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/ic_ac_unit_black"
-                    android:textAllCaps="false" />
-
-                <TextView
-                    android:id="@+id/txtFeat_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="AC Units" />
+        <!--<LinearLayout-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_weight="1"-->
+        <!--android:gravity="center"-->
+        <!--android:orientation="vertical">-->
 
 
-            </LinearLayout>
+        <!--<ImageButton-->
+        <!--android:id="@+id/IBicon_1"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_weight="1"-->
+        <!--android:background="@android:color/transparent"-->
+        <!--android:fitsSystemWindows="true"-->
+        <!--android:scaleType="centerCrop"-->
+        <!--android:src="@drawable/ic_ac_unit_black"-->
+        <!--android:textAllCaps="false" />-->
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageButton
-                    android:id="@+id/IBicon_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@android:color/transparent"
-                    android:src="@drawable/ic_kitchen_black"
-                    android:textAllCaps="false" />
-
-                <TextView
-                    android:id="@+id/txtFeat_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Kitchen" />
+        <!--<TextView-->
+        <!--android:id="@+id/txtFeat_1"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="8dp"-->
+        <!--android:text="AC Units" />-->
 
 
-            </LinearLayout>
+        <!--</LinearLayout>-->
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical">
+        <!--<LinearLayout-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_weight="1"-->
+        <!--android:gravity="center"-->
+        <!--android:orientation="vertical">-->
 
-                <ImageButton
-                    android:id="@+id/IBicon_3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@android:color/transparent"
-                    android:src="@drawable/ic_local_cafe_black"
-                    android:textAllCaps="false" />
+        <!--<ImageButton-->
+        <!--android:id="@+id/IBicon_2"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_weight="1"-->
+        <!--android:background="@android:color/transparent"-->
+        <!--android:src="@drawable/ic_kitchen_black"-->
+        <!--android:textAllCaps="false" />-->
 
-                <TextView
-                    android:id="@+id/txtFeat_3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Cafe" />
+        <!--<TextView-->
+        <!--android:id="@+id/txtFeat_2"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="8dp"-->
+        <!--android:text="Kitchen" />-->
 
 
-            </LinearLayout>
-        </LinearLayout>
+        <!--</LinearLayout>-->
+
+        <!--<LinearLayout-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_weight="1"-->
+        <!--android:gravity="center"-->
+        <!--android:orientation="vertical">-->
+
+        <!--<ImageButton-->
+        <!--android:id="@+id/IBicon_3"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_weight="1"-->
+        <!--android:background="@android:color/transparent"-->
+        <!--android:src="@drawable/ic_local_cafe_black"-->
+        <!--android:textAllCaps="false" />-->
+
+        <!--<TextView-->
+        <!--android:id="@+id/txtFeat_3"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="8dp"-->
+        <!--android:text="Cafe" />-->
+
+        <!--</LinearLayout>-->
+        <!--</LinearLayout>-->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -175,6 +174,8 @@
                 android:fontFamily="sans-serif"
                 android:text="Lorem ipsulum dolor sit ame,  this is some random placehp;edr stuff. Like genuinely, there\'s no forethpught to the stuff I am writing now. So let us  just stop typing"
                 android:textAllCaps="false" />
+
+
 
         </LinearLayout>
 
