@@ -84,7 +84,7 @@
 
         </android.support.design.widget.CoordinatorLayout>
 
-        <include layout="@layout/card_layout_details" />
+
 
         <include layout="@layout/activity_maps" />
 

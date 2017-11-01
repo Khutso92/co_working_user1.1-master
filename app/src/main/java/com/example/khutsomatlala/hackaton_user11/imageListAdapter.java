@@ -196,27 +196,28 @@ public class imageListAdapter extends ArrayAdapter<Place> {
                     }
                 });
 
-          /*      dia_direction.setOnClickListener(new View.OnClickListener() {
+//      dia_direction.setOnClickListener(new View.OnClickListener() {
+//
+//                    @Override
+//                    public void onClick(View view) {
+//
+//                        Intent intent = new Intent(getContext(), MapsActivity.class);
+//
+//                        String lat = listImage.get(position).getPlaceLatitude();
+//                        String lon = listImage.get(position).getPlaceLongitude();
+//                        String name = listImage.get(position).getPlaceName();
+//
+//                        intent.putExtra("lat", lat);
+//                        intent.putExtra("lon", lon);
+//                        intent.putExtra("name", name);
+//                        context.startActivity(intent);
+//
+//                        alertDialog.dismiss();
+//
+//                    }
+//                });
 
-                    @Override
-                    public void onClick(View view) {
 
-                        Intent intent = new Intent(getContext(), MapsActivity.class);
-
-                        String lat = listImage.get(position).getPlaceLatitude();
-                        String lon = listImage.get(position).getPlaceLongitude();
-                        String name = listImage.get(position).getPlaceName();
-
-                        intent.putExtra("lat", lat);
-                        intent.putExtra("lon", lon);
-                        intent.putExtra("name", name);
-                        context.startActivity(intent);
-
-                        alertDialog.dismiss();
-
-                    }
-                });
-*/
                 dia_book.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -234,35 +235,35 @@ public class imageListAdapter extends ArrayAdapter<Place> {
                     }
                 });
 
-                dia_infor.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-
-                        Intent intent = new Intent(getContext(), DetailActivity.class);
-
-                        String lat = listImage.get(position).getPlaceLatitude();
-                        String lon = listImage.get(position).getPlaceLongitude();
-                        String name = listImage.get(position).getPlaceName();
-                        String call = listImage.get(position).getPlaceCell();
-                        String infor = listImage.get(position).getPlaceInfo();
-                        String address = listImage.get(position).getPlaceAddress();
-                        String hours = listImage.get(position).getPlaceHours();
-                        String pic = listImage.get(position).getUrI();
-
-                        intent.putExtra("lat", lat);
-                        intent.putExtra("lon", lon);
-                        intent.putExtra("name", name);
-                        intent.putExtra("call", call);
-                        intent.putExtra("infor", infor);
-                        intent.putExtra("address", address);
-                        intent.putExtra("hours", hours);
-                        intent.putExtra("pic", pic);
-
-                        context.startActivity(intent);
-                        alertDialog.dismiss();
-
-                    }
-                });
+//                dia_infor.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View view) {
+//
+//                        Intent intent = new Intent(getContext(), DetailActivity.class);
+//
+//                        String lat = listImage.get(position).getPlaceLatitude();
+//                        String lon = listImage.get(position).getPlaceLongitude();
+//                        String name = listImage.get(position).getPlaceName();
+//                        String call = listImage.get(position).getPlaceCell();
+//                        String infor = listImage.get(position).getPlaceInfo();
+//                        String address = listImage.get(position).getPlaceAddress();
+//                        String hours = listImage.get(position).getPlaceHours();
+//                        String pic = listImage.get(position).getUrI();
+//
+//                        intent.putExtra("lat", lat);
+//                        intent.putExtra("lon", lon);
+//                        intent.putExtra("name", name);
+//                        intent.putExtra("call", call);
+//                        intent.putExtra("infor", infor);
+//                        intent.putExtra("address", address);
+//                        intent.putExtra("hours", hours);
+//                        intent.putExtra("pic", pic);
+//
+//                        context.startActivity(intent);
+//                        alertDialog.dismiss();
+//
+//                    }
+//                });
 
                 alertDialog.show();
 

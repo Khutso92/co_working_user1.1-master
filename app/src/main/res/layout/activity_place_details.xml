@@ -7,12 +7,16 @@
     android:fitsSystemWindows="true"
     tools:context="com.example.khutsomatlala.hackaton_user11.PlaceDetailsActivity">
 
+
+
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/app_bar_height"
         android:fitsSystemWindows="true"
         android:theme="@style/AppTheme.AppBarOverlay">
+
+
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/toolbar_layout"
@@ -21,6 +25,8 @@
             android:fitsSystemWindows="true"
             app:contentScrim="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
@@ -42,8 +48,24 @@
 
 
         </android.support.design.widget.CollapsingToolbarLayout>
+
+
     </android.support.design.widget.AppBarLayout>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:onClick="GoToBook"
+            android:text="Book now"
+            android:textStyle="bold"
+            android:layout_alignParentRight="true"
+            />
+    </RelativeLayout>
     <android.support.design.widget.FloatingActionButton
 
         android:id="@+id/fab"
@@ -51,8 +73,21 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/fab_margin"
         app:layout_anchor="@id/app_bar"
-        app:layout_anchorGravity="bottom|end"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        app:borderWidth="1dp"
+        app:fabSize="normal"
+        app:layout_anchorGravity="bottom|end" />
+
+    <TextView
+        android:id="@+id/txtPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="330dp"
+        android:layout_marginTop="170dp"
+        android:elevation="7dp"
+        android:gravity="center_horizontal"
+        android:textColor="#ffffff"
+        tools:text="R78" />
+
 
     <!--   <FrameLayout
            android:layout_width="wrap_content"

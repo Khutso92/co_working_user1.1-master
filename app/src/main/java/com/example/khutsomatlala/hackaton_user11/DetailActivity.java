@@ -1,3 +1,4 @@
+/*
 package com.example.khutsomatlala.hackaton_user11;
 
 import android.content.Intent;
@@ -132,7 +133,7 @@ public class DetailActivity extends FragmentActivity implements OnMapReadyCallba
 
         txtInformation = findViewById(R.id.txtInformation);
 
-        txtHours = findViewById(R.id.txtHours);
+        
 
         detail_pic = findViewById(R.id.middlePic);
 
@@ -307,7 +308,8 @@ public class DetailActivity extends FragmentActivity implements OnMapReadyCallba
         mapFragment.getMapAsync(this);
     }
 
-      /*  //Like
+      */
+/*  //Like
         mDBLike = FirebaseDatabase.getInstance().getReference();
         mDBLike.keepSynced(true);
 
@@ -399,7 +401,8 @@ public class DetailActivity extends FragmentActivity implements OnMapReadyCallba
 
         callLikes();
     }
-*/
+*//*
+
 
     public void Call(View view) {
 
@@ -488,3 +491,4 @@ public class DetailActivity extends FragmentActivity implements OnMapReadyCallba
     }
 }
 
+*/

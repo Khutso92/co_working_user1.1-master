@@ -1,9 +1,11 @@
 package com.example.khutsomatlala.hackaton_user11;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
+import android.view.Window;
 import android.widget.ImageView;
 
 import com.example.khutsomatlala.hackaton_user11.adapter.MyItemRecyclerViewAdapter;
@@ -20,7 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     public static final String FB_DATABASE_PATH = "places";
     private DatabaseReference mDatabaseRef;
@@ -55,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 progressDialog.dismiss();
-
+                workingSpaces.clear();
                 //Fectching information from database
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     WorkingSpace workingSpace = new WorkingSpace();
@@ -70,6 +72,8 @@ public class MainActivity extends AppCompatActivity {
                     details.setPlaceLatitude(snapshot.child("details").child("Latitude").getValue().toString());
                     details.setPlaceLongitude(snapshot.child("details").child("Longitude").getValue().toString());
                     details.setPlaceWebsite(snapshot.child("details").child("PlaceWebsite").getValue().toString());
+
+
 
                     workingSpace.setPlaceDetails(details);
                     List<PlacePicture> pictures = new ArrayList<>();

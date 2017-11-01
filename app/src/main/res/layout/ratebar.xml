@@ -6,22 +6,18 @@
     android:orientation="vertical">
 
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="                Rate us"
-        android:textStyle="bold" />
+
 
     <RatingBar
         android:id="@+id/rating_rating_bar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="clip_horizontal"
-        android:layout_marginLeft="70dp"
         android:numStars="5"
         android:onClick="rate"
         android:progressTint="#daa520"
+        android:isIndicator="false"
+        style="?android:attr/ratingBarStyleIndicator"
         android:stepSize="1" />
 
     <TextView

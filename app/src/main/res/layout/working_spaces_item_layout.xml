@@ -1,29 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="200dp">
+    android:layout_height="250dp"
+    android:layout_marginBottom="10dp">
 
+    <!--0099ff-->
     <ImageView
         android:id="@+id/wsPic"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#0099ff" />
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:background="#0099ff"
+        android:scaleType="centerCrop" />
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#95000000" />
+        android:layout_height="wrap_content"
+        android:background="#8500000f" />
 
     <LinearLayout
+        android:id="@+id/mainLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
+        android:layout_centerInParent="true"
         android:gravity="center"
-        android:orientation="vertical"
-
-        >
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/wsName"
@@ -32,7 +33,7 @@
             android:fontFamily="sans-serif-condensed"
             android:text="Nomads and Co."
             android:textColor="#fff"
-            android:textSize="16sp"
+            android:textSize="25sp"
             android:textStyle="bold" />
 
         <TextView
@@ -40,11 +41,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textView"
-            android:layout_marginTop="4dp"
             android:fontFamily="sans-serif-condensed"
             android:text="Braamfontein"
             android:textColor="#fff"
-            android:textSize="13sp"
+            android:textSize="15sp"
             android:textStyle="normal" />
 
         <TextView
@@ -62,51 +62,52 @@
     </LinearLayout>
 
 
-
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_alignParentBottom="true"
-        android:layout_margin="12dp"
         android:layout_centerHorizontal="true"
+        android:layout_margin="16dp"
+        android:layout_marginTop="12dp"
         android:gravity="center"
+        android:orientation="horizontal"
         android:padding="4dp"
-        >
+        android:visibility="gone">
 
-    <TextView
-        android:id="@+id/wsFeat1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/square_box_border"
-        android:fontFamily="sans-serif-condensed"
-        android:text="WiFi"
-        android:textColor="#fff"
-        android:textSize="13sp" />
+        <TextView
+            android:id="@+id/wsFeat1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/square_box_border"
+            android:fontFamily="sans-serif-condensed"
+            android:text="WiFi"
+            android:textColor="#fff"
+            android:textSize="13sp" />
 
-    <TextView
-        android:id="@+id/wsFeat2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/square_box_border"
-        android:fontFamily="sans-serif-condensed"
-        android:layout_marginLeft="12dp"
-        android:text="Kitchen"
-        android:textColor="#fff"
-        android:textSize="13sp" />
+        <TextView
+            android:id="@+id/wsFeat2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:background="@drawable/square_box_border"
+            android:fontFamily="sans-serif-condensed"
+            android:text="Kitchen"
+            android:textColor="#fff"
+            android:textSize="13sp" />
 
-    <TextView
-        android:id="@+id/wsFeat3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="12dp"
-        android:background="@drawable/square_box_border"
-        android:fontFamily="sans-serif-condensed"
-        android:text="AC Unit"
-        android:textColor="#fff"
-        android:textSize="13sp" />
+        <TextView
+            android:id="@+id/wsFeat3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:background="@drawable/square_box_border"
+            android:fontFamily="sans-serif-condensed"
+            android:text="AC Unit"
+            android:textColor="#fff"
+            android:textSize="13sp" />
 
     </LinearLayout>
+
 
     <TextView
         android:id="@+id/wsPrice"
@@ -117,19 +118,18 @@
         android:layout_alignParentTop="true"
         android:layout_margin="20dp"
         android:fontFamily="sans-serif-condensed"
-        android:text="180 ZAR"
         android:textColor="#fff"
-        android:textSize="16sp"/>
+        android:textSize="16sp" />
 
-    <ImageButton
-        android:id="@+id/weLike"
-        android:layout_margin="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:background="@android:color/transparent"
-        android:layout_alignParentTop="true"
-        app:srcCompat="@drawable/ic_like" />
+    <!--   <ImageButton
+           android:id="@+id/weLike"
+           android:layout_margin="20dp"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentEnd="true"
+           android:layout_alignParentRight="true"
+           android:background="@android:color/transparent"
+           android:layout_alignParentTop="true"
+           app:srcCompat="@drawable/ic_like" />-->
 
 </RelativeLayout>

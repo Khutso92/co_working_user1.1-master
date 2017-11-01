@@ -6,20 +6,15 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.khutsomatlala.hackaton_user11.PlaceDetailsActivity;
 import com.example.khutsomatlala.hackaton_user11.R;
-import com.example.khutsomatlala.hackaton_user11.model.PlacePicture;
 import com.example.khutsomatlala.hackaton_user11.model.WorkingSpace;
 
 import java.util.List;
-
-import static com.example.khutsomatlala.hackaton_user11.R.id.image;
 
 public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecyclerViewAdapter.ViewHolder> {
 
@@ -46,24 +41,20 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
 
         //Assigning data
         Glide.with(activity).load(mValues.get(position).getPictures().get(0).getImageUrl());
-        holder.hours.setText(mValues.get(position).getPlaceDetails().getPlaceHours());
-        holder.price.setText("R" + mValues.get(position).getPlaceDetails().getPrice());
+        holder.hours.setText(mValues.get(position).getPlaceDetails().getPlaceHours() + " - R" + mValues.get(position).getPlaceDetails().getPrice() + " per hour");
         holder.address.setText(mValues.get(position).getPlaceDetails().getPlaceAddress());
         holder.placeName.setText(mValues.get(position).getPlaceDetails().getPlaceName());
 
-   holder.feat1.setText(mValues.get(position).getFeatures().get(0).getTitle().toString());
-      holder.feat2.setText(mValues.get(position).getFeatures().get(1).getTitle().toString());
-         holder.feat3.setText(mValues.get(position).getFeatures().get(2).getTitle().toString());
-
-
-
+        holder.feat1.setText(mValues.get(position).getFeatures().get(0).getTitle().toString());
+        holder.feat2.setText(mValues.get(position).getFeatures().get(1).getTitle().toString());
+        holder.feat3.setText(mValues.get(position).getFeatures().get(2).getTitle().toString());
 
 
         Glide.with(activity).load(mValues.get(position).getPictures().get(0).getImageUrl()).into(holder.pic);
 
-       // System.out.println(mValues.get(position).getPictures().get(0).getImageUrl());
+        // System.out.println(mValues.get(position).getPictures().get(0).getImageUrl());
 
-
+        System.out.print("Name --" +mValues.get(position).getPlaceDetails().getPlaceName());
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -128,7 +119,7 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
             placeName = view.findViewById(R.id.wsName);
             feat1 = view.findViewById(R.id.wsFeat1);
             feat2 = view.findViewById(R.id.wsFeat2);
-            feat3= view.findViewById(R.id.wsFeat3);
+            feat3 = view.findViewById(R.id.wsFeat3);
 
         }
 

@@ -38,22 +38,17 @@
                 android:gravity="center_vertical"
                 android:paddingRight="16dp">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
 
-                </LinearLayout>
-
-                <Button
+          <!--      <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
                     android:fontFamily="sans-serif"
                     android:onClick="GoToBook"
                     android:text="Book now"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />-->
 
                 <TextView
                     android:id="@+id/txt_location"
@@ -66,6 +61,15 @@
                     android:text="Illovo Sandton"
                     android:textSize="14sp"
                     android:textStyle="bold" />
+                <RelativeLayout
+                    android:id="@+id/rating_stars"
+                     android:layout_toRightOf="@+id/txt_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <include layout="@layout/ratebar" />
+                    </RelativeLayout>
+
+
             </RelativeLayout>
 
 
@@ -162,10 +166,11 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="32dp"
+
+            android:layout_marginBottom="8dp"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
-            android:paddingTop="32dp">
+            >
 
             <TextView
                 android:id="@+id/txtInformation"
@@ -252,7 +257,7 @@
 
             <include layout="@layout/card_layout_comments" />
 
-            <include layout="@layout/ratebar" />
+
         </LinearLayout>
 
 
