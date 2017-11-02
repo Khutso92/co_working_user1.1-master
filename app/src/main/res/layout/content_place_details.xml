@@ -32,45 +32,31 @@
                 android:textSize="22sp"
                 android:textStyle="bold" />
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:orientation="horizontal"
                 android:gravity="center_vertical"
                 android:paddingRight="16dp">
-
-
-          <!--      <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif"
-                    android:onClick="GoToBook"
-                    android:text="Book now"
-                    android:textStyle="bold"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true" />-->
 
                 <TextView
                     android:id="@+id/txt_location"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
+                    android:layout_marginRight="18dp"
                     android:fontFamily="sans-serif"
                     android:gravity="center_vertical"
                     android:text="Illovo Sandton"
                     android:textSize="14sp"
                     android:textStyle="bold" />
-                <RelativeLayout
-                    android:id="@+id/rating_stars"
-                     android:layout_toRightOf="@+id/txt_location"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+
+
                     <include layout="@layout/ratebar" />
-                    </RelativeLayout>
 
 
-            </RelativeLayout>
+
+
+            </LinearLayout>
 
 
         </LinearLayout>
@@ -183,14 +169,16 @@
 
 
         </LinearLayout>
-
-        <include layout="@layout/activity_maps" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="@drawable/square_box_border">
 
 
             <LinearLayout
@@ -203,17 +191,19 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:orientation="vertical">
-
-                    <Button
-                        android:id="@+id/btn_reviews"
+                    android:orientation="horizontal">
+                    <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:src="@drawable/blackchat"/>
+                    <Button
+                        android:id="@+id/btn_reviews"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+
                         android:background="@android:color/transparent"
-                        android:src="@drawable/ic_ac_unit_black"
-                        android:text="0\nReviews"
-                        android:textAllCaps="false" />
+                        android:text="0"/>
+
 
 
                 </LinearLayout>
@@ -223,17 +213,20 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:orientation="vertical">
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/stars"/>
 
                     <Button
                         android:id="@+id/btn_ratingStars"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+
                         android:background="@android:color/transparent"
                         android:src="@drawable/ic_ac_unit_black"
-                        android:text="4.6\nStars"
-                        android:textAllCaps="false" />
+                        android:text="4.6" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -241,24 +234,40 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:orientation="vertical">
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/people"/>
 
                     <Button
                         android:id="@+id/btn_NumberUsers"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+
                         android:background="@android:color/transparent"
                         android:src="@drawable/ic_ac_unit_black"
-                        android:text="16\nUsers"
-                        android:textAllCaps="false" />
+                        android:text="16"
+                        />
                 </LinearLayout>
+
             </LinearLayout>
 
-            <include layout="@layout/card_layout_comments" />
+
 
 
         </LinearLayout>
+
+
+        </RelativeLayout>
+        <include layout="@layout/activity_maps" />
+        <include layout="@layout/card_layout_comments" />
+
+
+
+
+
 
 
     </LinearLayout>
